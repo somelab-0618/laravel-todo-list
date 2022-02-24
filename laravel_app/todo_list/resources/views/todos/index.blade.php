@@ -34,7 +34,14 @@
                     </tr>
                 @endforeach
             </table>
-
+            <div>
+                <h2>新規タスク追加</h2>
+                <form action="{{route('store')}}" method="POST">
+                    @csrf
+                    <input type="text" name="comment" id="">
+                    <button type="submit">追加</button>
+                </form>
+            </div>
         </main>
     </body>
 </html>

@@ -19,16 +19,6 @@ class TodoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -36,29 +26,15 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $comment = $request->comment;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $todo = new Todo();
+        $todo->comment = $comment;
+        $todo->status = 'wip';
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $todo->save();
+
+        return redirect('/');
     }
 
     /**
