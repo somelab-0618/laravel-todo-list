@@ -1,54 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>TodoList</title>
-        <style>
-            main {
-                width: 50%;
-                margin: 0 auto;
-            }
+@section('title', 'TodoList')
 
-            button {
-                cursor: pointer;
-            }
-
-            .error {
-                color: red;
-            }
-        </style>
-    </head>
-    <body>
-        <main>
-            <h1>Todo List</h1>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>コメント</th>
-                    <th>状態</th>
-                </tr>
-                @foreach ($todos as $todo)
-                    <tr>
-                        <td>{{ $todo->id }}</td>
-                        <td>{{ $todo->comment }}</td>
-                        <td><button>{{ $todo->status === 'wip' ? '作業中' : '完了' }}</button></td>
-                        <td><button>削除</button></td>
-                    </tr>
-                @endforeach
-            </table>
-            <div>
-                <h2>新規タスク追加</h2>
-                @if ($errors->first('comment'))
-                    <p class="error">※{{$errors->first('comment')}}</p>
-                @endif
-                <form action="{{route('store')}}" method="POST">
-                    @csrf
-                    <input type="text" name="comment" id="">
-                    <button type="submit">追加</button>
-                </form>
-            </div>
-        </main>
-    </body>
-</html>
+@include('todos.todoList')
+@include('todos.todoForm')
