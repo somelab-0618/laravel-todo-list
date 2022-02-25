@@ -14,6 +14,10 @@
             button {
                 cursor: pointer;
             }
+
+            .error {
+                color: red;
+            }
         </style>
     </head>
     <body>
@@ -36,6 +40,9 @@
             </table>
             <div>
                 <h2>新規タスク追加</h2>
+                @if ($errors->first('comment'))
+                    <p class="error">※{{$errors->first('comment')}}</p>
+                @endif
                 <form action="{{route('store')}}" method="POST">
                     @csrf
                     <input type="text" name="comment" id="">
