@@ -18,7 +18,7 @@ class ChangeTodosTableColumnStatusToIsDone extends Migration
         });
 
         Schema::table('todos', function (Blueprint $table) {
-            $table->boolean('is_done')->default(true)->change();
+            $table->boolean('is_done')->default(false)->change();
         });
     }
 
