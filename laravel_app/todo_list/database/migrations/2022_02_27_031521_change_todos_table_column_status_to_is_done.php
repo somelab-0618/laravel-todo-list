@@ -13,7 +13,10 @@ class ChangeTodosTableColumnStatusToIsDone extends Migration
      */
     public function up()
     {
-        // 型を変更
+        Schema::table('todos', function (Blueprint $table) {
+            $table->renameColumn('status', 'is_done');
+        });
+
         Schema::table('todos', function (Blueprint $table) {
             $table->boolean('is_done')->default(true)->change();
         });
@@ -26,7 +29,10 @@ class ChangeTodosTableColumnStatusToIsDone extends Migration
      */
     public function down()
     {
-        // 型を戻す
+        Schema::table('todos', function (Blueprint $table) {
+            $table->string('is_done')->change();
+        });
+
         Schema::table('todos', function (Blueprint $table) {
             $table->renameColumn('is_done', 'status');
         });
