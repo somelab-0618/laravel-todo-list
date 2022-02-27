@@ -31,7 +31,6 @@ class TodoController extends Controller
 
         $todo = new Todo();
         $todo->comment = $comment;
-        $todo->status = 'wip';
 
         $todo->save();
 
