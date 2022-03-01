@@ -25,16 +25,14 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TodoRequest $request)
+    public function store(TodoRequest $request, Todo $todo)
     {
         $comment = $request->comment;
 
-        $todo = new Todo();
         $todo->comment = $comment;
-
         $todo->save();
 
-        return redirect('/');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -55,8 +53,9 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Todo $todo)
     {
-        //
+        $todo->delete();
+        return redirect()->route('todo.index');
     }
 }

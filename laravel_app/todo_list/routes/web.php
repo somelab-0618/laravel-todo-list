@@ -14,4 +14,4 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-Route::resource('/', TodoController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::resource('todo', TodoController::class);
