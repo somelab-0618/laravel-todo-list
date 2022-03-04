@@ -31,10 +31,9 @@ class TodoController extends Controller
 
         $todo = new Todo();
         $todo->comment = $comment;
-
         $todo->save();
 
-        return redirect('/');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -57,6 +56,8 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->delete();
+        return redirect()->route('todo.index');
     }
 }
