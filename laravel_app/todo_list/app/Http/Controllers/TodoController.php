@@ -45,7 +45,9 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->update(['is_done' => $todo->is_done === 0 ? 1 : 0]);
+        return redirect()->route('todo.index');
     }
 
     /**
