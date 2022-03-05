@@ -9,6 +9,7 @@
 <body>
 <main class="container">
     <h1>Todo List</h1>
+    @yield('todoSelect')
     @yield('todoList')
     @yield('todoForm')
 </main>
