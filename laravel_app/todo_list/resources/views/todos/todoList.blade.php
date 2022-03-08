@@ -5,7 +5,6 @@
         <th class="comment">コメント</th>
         <th class="status">状態</th>
     </tr>
-    {{ $_SERVER['QUERY_STRING'] }}
     @foreach ($todos as $key => $todo)
         <tr>
             <td class="id">{{ $key + 1 }}</td>
