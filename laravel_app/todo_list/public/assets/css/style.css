@@ -69,6 +69,16 @@ button {
     padding: 8px;
 }
 
+.radio-wrap {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.radio-item {
+    display: inline-block;
+    width: 120px;
+}
+
 .error {
     color: red;
 }
